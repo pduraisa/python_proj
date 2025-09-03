@@ -4,14 +4,15 @@
 def twosum(arr, target):
   ht=dict()
   for val in arr:
-      c = abs(target-val)
-      if val in ht.values():
-           return c, val
+      c = target-val
+      if not ht.get(val):
+           ht[c] = 1
       else:
-         ht[val]=c
+           return c, val
+         
   return -1,-1
 
 arr = [2,4,6,7]
-target = 10
+target = 11
 ret = twosum(arr, target)
 print (ret)
